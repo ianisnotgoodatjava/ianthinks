@@ -1,0 +1,7 @@
+# Generated — rebuilt from the sources, never edited by hand
+deploy/
+dist/
+
+# Local editor / session config
+.claude/
+.DS_Store

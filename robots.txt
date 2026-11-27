@@ -1,0 +1,8 @@
+# ianthinks.com
+User-agent: *
+Allow: /
+
+# Reference file, not a page.
+Disallow: /_entry-examples.html
+
+Sitemap: https://ianthinks.com/sitemap.xml

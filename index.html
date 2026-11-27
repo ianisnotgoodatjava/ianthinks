@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Ian</title>
+<meta name="description" content="Current events worth a second look, what I think the market is pricing wrong, and the things I'm building.">
+<link rel="canonical" href="https://ianthinks.com/">
+<meta property="og:site_name" content="Ian">
+<meta property="og:title" content="Ian">
+<meta property="og:description" content="Current events worth a second look, what I think the market is pricing wrong, and the things I'm building.">
+<meta property="og:url" content="https://ianthinks.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ianthinks.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A silicon wafer rising like a sun over mountain ridges, with circuit traces in the foreground.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23161410'/><circle cx='16' cy='16' r='7.5' fill='none' stroke='%23e9a36b' stroke-width='2.4'/><circle cx='16' cy='16' r='2.2' fill='%23e9a36b'/></svg>">
+<script>
+  /* set the theme before first paint so there's no flash */
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+
+  <div class="topbar" id="topbar">
+    <a class="mark" href="#top">Ian</a>
+    <button id="theme-toggle" class="icon-btn" type="button"
+            aria-label="Switch colour theme" title="Switch colour theme">
+      <span class="theme-icon" aria-hidden="true"></span>
+      <span class="theme-label">Auto</span>
+    </button>
+  </div>
+
+  <div class="hero" id="hero">
+    <svg viewBox="0 0 800 460" role="img" aria-label="A silicon wafer rising like a sun through light rays over four layers of jagged mountain ridges, with circuit traces running through the dark foreground.">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0"    class="sky-0"/>
+          <stop offset="0.40" class="sky-1"/>
+          <stop offset="0.70" class="sky-2"/>
+          <stop offset="1"    class="sky-3"/>
+        </linearGradient>
+        <radialGradient id="glow">
+          <stop offset="0"    class="glow-in"/>
+          <stop offset="0.42" class="glow-mid"/>
+          <stop offset="1"    class="glow-out"/>
+        </radialGradient>
+        <radialGradient id="horizon">
+          <stop offset="0"    class="glow-mid"/>
+          <stop offset="1"    class="glow-out"/>
+        </radialGradient>
+        <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0"   class="haze-out"/>
+          <stop offset="0.5" class="haze-in"/>
+          <stop offset="1"   class="haze-out"/>
+        </linearGradient>
+        <!-- crest highlight: brightest where it faces the sun -->
+        <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0.12" class="rim-out"/>
+          <stop offset="0.52" class="rim-mid"/>
+          <stop offset="0.72" class="rim-in"/>
+          <stop offset="0.96" class="rim-out"/>
+        </linearGradient>
+        <radialGradient id="rayfade" cx="578" cy="150" r="330" gradientUnits="userSpaceOnUse">
+          <stop offset="0.08" stop-color="#fff" stop-opacity="0"/>
+          <stop offset="0.3"  stop-color="#fff" stop-opacity="0.85"/>
+          <stop offset="1"    stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="raymask">
+          <rect width="800" height="460" fill="url(#rayfade)"/>
+        </mask>
+        <!-- sunlight washing across the wafer, so it reads as the light source -->
+        <radialGradient id="sunwash" cx="0.42" cy="0.34" r="0.78">
+          <stop offset="0" class="wash-in"/>
+          <stop offset="1" class="wash-out"/>
+        </radialGradient>
+        <clipPath id="wafer-clip"><circle cx="578" cy="150" r="82"/></clipPath>
+      </defs>
+
+      <rect width="800" height="460" fill="url(#sky)"/>
+
+      <g class="stars">
+        <circle cx="137" cy="106" r="1.3" style="--d:2.9s"/>
+        <circle cx="177" cy="131" r="1.4" style="--d:3.1s"/>
+        <circle cx="404" cy="42"  r="0.7" style="--d:2.2s"/>
+        <circle cx="467" cy="18"  r="1.4" style="--d:1.4s"/>
+        <circle cx="190" cy="14"  r="1.6" style="--d:4.4s"/>
+        <circle cx="35"  cy="55"  r="1.1" style="--d:0.7s"/>
+        <circle cx="754" cy="60"  r="0.8" style="--d:4.9s"/>
+        <circle cx="106" cy="160" r="1.1" style="--d:3.3s"/>
+        <circle cx="277" cy="77"  r="0.9" style="--d:0.2s"/>
+        <circle cx="768" cy="182" r="1.4" style="--d:4.6s"/>
+        <circle cx="463" cy="122" r="0.8" style="--d:2.9s"/>
+        <circle cx="732" cy="176" r="1.1" style="--d:2.2s"/>
+        <circle cx="362" cy="63"  r="1.6" style="--d:2.3s"/>
+        <circle cx="29"  cy="21"  r="1.3" style="--d:6.0s"/>
+        <circle cx="397" cy="88"  r="1.2" style="--d:4.5s"/>
+        <circle cx="182" cy="94"  r="1.2" style="--d:3.7s"/>
+        <circle cx="150" cy="32"  r="1.0" style="--d:5.6s"/>
+        <circle cx="280" cy="103" r="1.0" style="--d:0.6s"/>
+        <circle cx="59"  cy="134" r="1.4" style="--d:2.2s"/>
+        <circle cx="713" cy="196" r="1.1" style="--d:5.9s"/>
+        <circle cx="302" cy="43"  r="1.5" style="--d:1.0s"/>
+        <circle cx="62"  cy="181" r="1.4" style="--d:2.9s"/>
+        <circle cx="210" cy="49"  r="1.1" style="--d:1.0s"/>
+        <circle cx="62"  cy="56"  r="1.5" style="--d:5.9s"/>
+        <circle cx="206" cy="196" r="1.2" style="--d:4.4s"/>
+        <circle cx="30"  cy="38"  r="1.5" style="--d:4.8s"/>
+        <circle cx="342" cy="101" r="1.5" style="--d:1.8s"/>
+        <circle cx="427" cy="47"  r="1.4" style="--d:0.1s"/>
+        <circle cx="26"  cy="102" r="1.3" style="--d:5.1s"/>
+        <circle cx="466" cy="45"  r="1.1" style="--d:5.8s"/>
+        <circle cx="718" cy="27"  r="0.8" style="--d:0.6s"/>
+        <circle cx="28"  cy="71"  r="0.8" style="--d:5.2s"/>
+        <circle cx="430" cy="54"  r="1.1" style="--d:1.3s"/>
+        <circle cx="138" cy="34"  r="1.0" style="--d:4.3s"/>
+        <circle cx="439" cy="15"  r="1.3" style="--d:5.2s"/>
+        <circle cx="86"  cy="206" r="1.0" style="--d:1.9s"/>
+        <circle cx="258" cy="148" r="1.1" style="--d:3.9s"/>
+        <circle cx="330" cy="22"  r="1.1" style="--d:2.6s"/>
+        <circle cx="118" cy="224" r="1.0" style="--d:4.1s"/>
+        <circle cx="244" cy="20"  r="0.9" style="--d:0.9s"/>
+      </g>
+
+      <!-- light rays, fanning out of the wafer -->
+      <g class="rays" mask="url(#raymask)">
+        <path d="M578,150 L156.7,-35.3 L146.3,-9.3 Z"/>
+        <path d="M578,150 L286.8,-206.4 L265.6,-188.0 Z"/>
+        <path d="M578,150 L480.3,-299.7 L453.1,-292.9 Z"/>
+        <path d="M578,150 L687.3,-297.0 L659.9,-302.8 Z"/>
+        <path d="M578,150 L872.2,-203.9 L850.2,-221.1 Z"/>
+        <path d="M578,150 L997.5,-39.1 L985.3,-64.3 Z"/>
+        <path d="M578,150 L1035.9,196.1 L1037.9,168.1 Z"/>
+        <path d="M578,150 L120.1,103.9 L118.1,131.9 Z"/>
+      </g>
+
+      <circle class="halo" cx="578" cy="150" r="236" fill="url(#glow)"/>
+      <ellipse class="horizon-glow" cx="578" cy="272" rx="430" ry="96" fill="url(#horizon)"/>
+
+      <!-- the wafer, rising -->
+      <g class="layer" data-depth="0.08">
+        <g clip-path="url(#wafer-clip)">
+          <circle cx="578" cy="150" r="82" class="wafer-face"/>
+          <g class="wafer-die">
+            <rect x="516" y="104" width="14" height="14"/>
+            <rect x="516" y="152" width="14" height="14"/>
+            <rect x="532" y="120" width="14" height="14"/>
+            <rect x="532" y="184" width="14" height="14"/>
+            <rect x="548" y="88"  width="14" height="14"/>
+            <rect x="548" y="136" width="14" height="14"/>
+            <rect x="548" y="200" width="14" height="14"/>
+            <rect x="564" y="104" width="14" height="14"/>
+            <rect x="564" y="168" width="14" height="14"/>
+            <rect x="580" y="88"  width="14" height="14"/>
+            <rect x="580" y="120" width="14" height="14"/>
+            <rect x="580" y="216" width="14" height="14"/>
+            <rect x="596" y="104" width="14" height="14"/>
+            <rect x="596" y="152" width="14" height="14"/>
+            <rect x="596" y="200" width="14" height="14"/>
+            <rect x="612" y="136" width="14" height="14"/>
+            <rect x="612" y="184" width="14" height="14"/>
+            <rect x="628" y="120" width="14" height="14"/>
+            <rect x="628" y="168" width="14" height="14"/>
+            <rect x="500" y="136" width="14" height="14"/>
+          </g>
+          <g class="wafer-grid">
+            <line x1="500" y1="60" x2="500" y2="240"/>
+            <line x1="516" y1="60" x2="516" y2="240"/>
+            <line x1="532" y1="60" x2="532" y2="240"/>
+            <line x1="548" y1="60" x2="548" y2="240"/>
+            <line x1="564" y1="60" x2="564" y2="240"/>
+            <line x1="580" y1="60" x2="580" y2="240"/>
+            <line x1="596" y1="60" x2="596" y2="240"/>
+            <line x1="612" y1="60" x2="612" y2="240"/>
+            <line x1="628" y1="60" x2="628" y2="240"/>
+            <line x1="644" y1="60" x2="644" y2="240"/>
+            <line x1="660" y1="60" x2="660" y2="240"/>
+            <line x1="490" y1="72"  x2="670" y2="72"/>
+            <line x1="490" y1="88"  x2="670" y2="88"/>
+            <line x1="490" y1="104" x2="670" y2="104"/>
+            <line x1="490" y1="120" x2="670" y2="120"/>
+            <line x1="490" y1="136" x2="670" y2="136"/>
+            <line x1="490" y1="152" x2="670" y2="152"/>
+            <line x1="490" y1="168" x2="670" y2="168"/>
+            <line x1="490" y1="184" x2="670" y2="184"/>
+            <line x1="490" y1="200" x2="670" y2="200"/>
+            <line x1="490" y1="216" x2="670" y2="216"/>
+            <line x1="490" y1="232" x2="670" y2="232"/>
+          </g>
+          <circle cx="578" cy="150" r="82" fill="url(#sunwash)"/>
+        </g>
+        <circle cx="578" cy="150" r="82" class="wafer-edge"/>
+        <!-- lit rim, where the light comes from -->
+        <path class="wafer-rim" d="M514.3,98.4 A82 82 0 0 1 631.8,88.1"/>
+        <path class="wafer-notch" d="M507,191 l18,10"/>
+      </g>
+
+      <!-- ridge 1, furthest and most jagged -->
+      <g class="layer" data-depth="0.16">
+        <path class="ridge-1" d="M0,268 L48,236 L92,254 L140,208 L186,240 L232,214 L286,246 L330,196 L382,232 L428,210 L476,244 L524,218 L572,250 L628,222 L680,252 L726,228 L772,254 L800,240 V480 H0 Z"/>
+        <path class="crest" d="M0,268 L48,236 L92,254 L140,208 L186,240 L232,214 L286,246 L330,196 L382,232 L428,210 L476,244 L524,218 L572,250 L628,222 L680,252 L726,228 L772,254 L800,240"/>
+      </g>
+      <rect class="haze" x="0" y="228" width="800" height="92"/>
+
+      <g class="layer" data-depth="0.30">
+        <path class="ridge-2" d="M0,300 L60,276 L118,296 L176,262 L240,292 L300,270 L356,298 L414,268 L470,296 L530,274 L590,300 L648,278 L704,302 L760,280 L800,296 V480 H0 Z"/>
+        <path class="crest" d="M0,300 L60,276 L118,296 L176,262 L240,292 L300,270 L356,298 L414,268 L470,296 L530,274 L590,300 L648,278 L704,302 L760,280 L800,296"/>
+      </g>
+      <rect class="haze" x="0" y="276" width="800" height="86"/>
+
+      <g class="layer" data-depth="0.48">
+        <path class="ridge-3" d="M0,342 L72,322 L140,340 L210,316 L278,338 L348,320 L418,342 L488,322 L556,344 L624,326 L692,346 L756,330 L800,342 V480 H0 Z"/>
+        <path class="crest" d="M0,342 L72,322 L140,340 L210,316 L278,338 L348,320 L418,342 L488,322 L556,344 L624,326 L692,346 L756,330 L800,342"/>
+      </g>
+      <rect class="haze" x="0" y="318" width="800" height="80"/>
+
+      <!-- nearest ridge: the board, in silhouette -->
+      <g class="layer" data-depth="0.78">
+        <path class="ridge-4" d="M0,392 L96,404 L188,396 L286,410 L380,400 L478,414 L572,402 L666,416 L756,404 L800,410 V480 H0 Z"/>
+        <g class="trace" fill="none">
+          <path d="M352,452 h86 l22,-22 h148"/>
+          <path d="M408,430 h40 l20,-20 h212"/>
+          <path d="M556,460 v-18 h64 l22,-22 h82"/>
+          <path d="M60,452 h138 l22,-22 h84"/>
+          <path d="M170,462 v-14 h58 l20,-20 h70"/>
+        </g>
+        <g class="via">
+          <circle cx="460" cy="430" r="3.4" style="--d:0s"/>
+          <circle cx="468" cy="410" r="3.4" style="--d:1.1s"/>
+          <circle cx="642" cy="420" r="3.4" style="--d:2.2s"/>
+          <circle cx="620" cy="442" r="3.4" style="--d:3.3s"/>
+          <circle cx="220" cy="430" r="3.4" style="--d:1.7s"/>
+          <circle cx="248" cy="428" r="3.4" style="--d:2.8s"/>
+        </g>
+      </g>
+    </svg>
+
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <div class="hero-text">
+      <h1>Ian</h1>
+      <p class="tagline"><span>What happened</span><span>What it's worth</span><span>What I built</span></p>
+    </div>
+  </div>
+
+  <div class="intro" id="top">
+    <p>
+      One page. What happened and why the obvious read is usually wrong, what the
+      market is pricing and where I think it's off, and whatever I'm building.
+      Click a line to open it — working notebook, not a portfolio, and nothing
+      here is investment advice.
+    </p>
+  </div>
+
+  <p class="section-rule">Entries</p>
+
+  <nav class="filters" aria-label="Filter by topic">
+    <button class="chip is-active" data-filter="all" aria-pressed="true"><span>Everything</span><span class="count" aria-hidden="true"></span></button>
+    <button class="chip" data-filter="current" aria-pressed="false"><i class="dot d-current"></i><span>Current events</span><span class="count" aria-hidden="true"></span></button>
+    <button class="chip" data-filter="markets" aria-pressed="false"><i class="dot d-markets"></i><span>Stocks</span><span class="count" aria-hidden="true"></span></button>
+    <button class="chip" data-filter="code" aria-pressed="false"><i class="dot d-code"></i><span>Code</span><span class="count" aria-hidden="true"></span></button>
+  </nav>
+  <p class="sr-only" role="status" aria-live="polite" id="filter-status"></p>
+
+  <!-- To add an entry: copy one <li>, set data-cat to current | markets | code,
+       write the body inside .entry-body, keep newest first. -->
+  <ul class="entries" id="feed">
+
+    <li class="entry-item reveal" data-cat="code">
+      <details class="entry-card">
+        <summary class="entry">
+          <span class="cat c-code"><i class="dot d-code"></i>Code</span>
+          <span class="entry-title">jobagent — a job search that keeps its own books</span>
+          <span class="entry-meta">2026 · Python</span>
+          <span class="entry-note">
+            Automates the parts of a job search that are the same every time: tailoring
+            the resume to the posting, filling in the portal application, keeping track
+            of where everything stands straight out of Gmail, and drafting outreach in my
+            own writing voice. It never sends anything.
+            <b class="entry-hint">How it works, four decisions worth defending, and the repo.</b>
+          </span>
+          <span class="entry-tags">
+            <span>Python</span><span>Gmail API</span><span>scikit-learn</span><span>agents</span><span>MCP</span>
+          </span>
+          <span class="entry-arrow" aria-hidden="true">→</span>
+        </summary>
+
+        <div class="entry-body is-long">
+          <p class="lede">
+            I built jobagent for my own job search and ran it on that search the whole way
+            through. That is where most of the design came from — each piece exists because
+            something broke without it.
+          </p>
+          <p>
+            It never sends anything. Every email it writes is an unsent Gmail draft that I
+            read and send myself. After each run, an agent reads the whole search and leaves
+            a brief of what needs me first.
+          </p>
+
+          <h3>How it works</h3>
+          <ol>
+            <li>
+              <b>Tailor.</b> It prepares the resume against the posting rather than sending
+              the same file everywhere — the wording that matches what the role actually
+              asks for, drawn from my own material.
+            </li>
+            <li>
+              <b>Apply.</b> It fills in the portal application, so the same name, dates and
+              standing answers aren't retyped into a different form for the hundredth time.
+              I review a completed application instead of writing one.
+            </li>
+            <li>
+              <b>Read.</b> Every few hours it reads new mail. Application confirmations
+              become sheet rows; rejections, interview invites and human replies update the
+              status. Each hiring system formats its email differently, so a parser handles
+              the common ones and two scikit-learn classifiers catch the wording the rules miss.
+            </li>
+            <li>
+              <b>Research.</b> For an application with no contact yet, it works out who the
+              right person to write to is, and how far that can be trusted, before anything
+              gets drafted. What it finds stays on my machine — none of it is in the
+              repository, and none of it is on this page.
+            </li>
+            <li>
+              <b>Draft.</b> The email is written from a retrieval index over my own past
+              outreach, so it sounds like me, then checked against how I actually write
+              before it becomes a draft.
+            </li>
+            <li>
+              <b>Judge.</b> An agent whose only tools are the project's own functions picks
+              which cold applications deserve research today, drafts due follow-ups, and
+              writes the brief. It has no tool that sends mail, and its budget is a hard
+              cap in code.
+            </li>
+          </ol>
+
+          <h3>Four decisions worth defending</h3>
+
+          <p>
+            <b>Learning behaviour instead of assuming it.</b> The follow-up scheduler needed
+            a wait interval. Rather than pick a round number, it measures: pair each follow-up
+            with the message before it to the same person and take the median gap. It came out
+            shorter than I'd have guessed, which is the point — the interval comes from how I
+            actually follow up, not from a figure that sounded about right. Getting the
+            training labels right mattered more than
+            the model. The obvious label — "is this a later message in the thread?" — is mostly
+            replies to people who had already written back, and training on those produces a
+            follow-up that opens "Thanks for getting back to me!" addressed to someone who
+            never did. The labels come from Gmail thread state instead: a send with no inbound
+            message before it is a genuine nudge into silence. That distinction is the whole feature.
+          </p>
+
+          <p>
+            <b>Deriving state instead of storing it.</b> Every follow-up rule reads off the
+            live Gmail thread rather than a local state file — they replied, skip; two sends
+            of mine already, skip; a pending draft, skip. Nothing can drift out of sync with
+            what was actually sent, and re-runs are safe by construction.
+          </p>
+
+          <p>
+            <b>Refusing to guess.</b> When no contact can be verified, the run writes a
+            <code>.SKIPPED</code> file explaining why instead of inventing a plausible name.
+            A fabricated detail in a cold email is worse than no email: the recipient notices.
+          </p>
+
+          <p>
+            <b>Public code, private search.</b> The repository is public; the search it ran
+            is not in it. Identity, resume, application answers and anything it ever learned
+            about another person live in gitignored files with <code>.example</code> templates
+            beside them, and the test fixtures use invented people. Nothing about the sender is hard-coded, so
+            anyone can clone it and run their own search without inheriting mine.
+          </p>
+
+          <h3>What it deliberately doesn't do</h3>
+          <ul>
+            <li>
+              <b>No LinkedIn scraping.</b> Their terms prohibit automated collection, and
+              breaking that risks your account. The helper only builds a search URL — you
+              browse and pick the contact yourself.
+            </li>
+            <li>
+              <b>No auto-sending.</b> Every email is created as a Gmail draft. You click
+              Send yourself, every time.
+            </li>
+          </ul>
+
+          <h3>Built with</h3>
+          <p>
+            Python 3.12 · Gmail, Sheets and Calendar APIs · scikit-learn · Claude (API, CLI,
+            or an MCP server the project exposes) or Meta's Muse for the research and writing
+            steps. Everything except research and drafting runs with no model at all.
+          </p>
+          <p>
+            The architecture is enforced rather than described: one module declares which
+            layer each file belongs to, and a test fails if any import points upward.
+          </p>
+
+          <pre data-lang="shell"><code>git clone https://github.com/ianisnotgoodatjava/cowork-job-app.git
+cd cowork-job-app
+python3 -m venv venv &amp;&amp; source venv/bin/activate
+pip install -r requirements.txt &amp;&amp; pip install -e .
+python cli.py setup</code></pre>
+
+          <p><a class="repo-link" href="https://github.com/ianisnotgoodatjava/cowork-job-app">Repo ↗</a></p>
+        </div>
+      </details>
+    </li>
+
+    <!-- Entries go here. Three worked patterns — a current-events read, a
+         stock write-up with a numbers table, a code project — are kept in
+         _entry-examples.html. Paste one in and rewrite it.
+         data-cat must be one of: current | markets | code -->
+
+    <li class="entry-item reveal" data-cat="markets">
+      <details class="entry-card">
+        <summary class="entry">
+          <span class="cat c-markets"><i class="dot d-markets"></i>Stocks</span>
+          <span class="entry-title">CPO analysis</span>
+          <span class="entry-meta">Sep 2026 · Optical networking · 18 min</span>
+          <span class="entry-note">
+            Optical networking has re-rated almost as hard as memory, on a fraction
+            of the coverage — and on backlogs that haven't turned into revenue yet.
+            What the supply chain actually looks like, why networking is the
+            bottleneck in AI infrastructure, how copper gives way to co-packaged
+            optics across scale-up and scale-out, and the cost, capacity, materials
+            and yield problems keeping CPO out of mass production.
+            <b class="entry-hint">Includes an interactive diagram of a CPO switch package.</b>
+          </span>
+          <span class="entry-tags">
+            <span>Scale-up vs scale-out</span>
+            <span>NVIDIA · Google TPU</span>
+            <span>Silicon photonics</span>
+            <span>InP supply</span>
+            <span>Cost · capacity · yield</span>
+          </span>
+          <span class="entry-arrow" aria-hidden="true">→</span>
+        </summary>
+        <div class="entry-body is-long">
+          <p class="lede">
+            We've seen memory stocks rise at almost astronomical rates. Everyone knows
+            SK Hynix, Micron, SanDisk, CXMT, Western Digital, and others. However, there
+            is another group within semiconductors that has also experienced a meteoric
+            rise in stock prices but has received significantly less media and analyst
+            coverage: optical networking companies. These include AAOI, AXT, Coherent,
+            Lumentum, Landmark Optoelectronics, and Zhongji Innolight, to name a few.
+          </p>
+          <p>
+            These companies sit across the photonics and optical communications supply
+            chain, which is considerably more complicated, less defined and consolidated,
+            and uncertain than memory. It stretches from upstream materials and components
+            — substrates, wafers, raw materials, FAUs, lasers — all the way downstream to
+            transceivers and optical modules. Unlike memory, where the prevailing
+            technologies and product roadmaps are relatively well defined, photonics is
+            still evolving rapidly, with multiple competing technologies and architectures.
+          </p>
+          <p>
+            At the same time, the industry is facing significant constraints in upstream
+            materials and in manufacturing cost, yield, and capacity. Many companies
+            already have significant order backlogs, but the revenue has not materialised
+            yet. Forward multiples are based on projected demand in 2027, 2028, or even
+            2029, rather than on revenue being recognised today, which makes them
+            particularly vulnerable to the current macro environment. We are seeing more
+            and more news and confirmed reports of delays in adoption. What follows is the
+            adoption of optical technologies across both scale-up and scale-out
+            architectures, and the various forms those technologies can take.
+          </p>
+
+          <h3>Why networking is the bottleneck</h3>
+          <p>
+            Photonics sits within a very crucial part of the AI infrastructure supply
+            chain: networking. GPUs and CPUs are only useful if they can communicate with
+            each other fast enough. With thousands of accelerators operating inside a data
+            centre, the communication requirements become enormous. NVIDIA's GB300 can
+            place 72 GPUs and 36 CPUs in a single rack, creating an extremely
+            high-bandwidth communication requirement.
+          </p>
+          <p>
+            It helps to split networking into two layers. <strong>Scale-up</strong> is
+            communication between GPUs inside one tightly coupled domain, today usually a
+            single rack, and it still relies mainly on high-speed copper.
+            <strong>Scale-out</strong> is communication between racks, and it increasingly
+            relies on optics. The rest of this piece follows that split.
+          </p>
+          <p>
+            In NVIDIA's architecture, this can involve 1.6T optical transceiver modules —
+            an aggregate 1.6 terabits per second, built from 8 × 200G lanes — with a total
+            of 216 optical modules required for the system. We expect networking technology
+            to keep advancing on both sides. On the scale-up side, from copper toward a
+            mixture of copper and CPO; on the scale-out side, from traditional optical
+            transceivers toward CPO. Bandwidth requirements keep climbing with it. 800G and
+            1.6T are the mainstream standards today. By 2028, 3.2T is expected to enter mass
+            production, while 6.4T could reach the sampling stage. Looking ahead to Feynman,
+            the generation after Vera Rubin, the architecture is not yet entirely clear, so
+            I won't go far into it below. But it is evident that CPO becomes a standard and
+            the most important component of networking for both scale-up and scale-out.
+          </p>
+
+          <h3>Scale-up: NVIDIA</h3>
+          <p>
+            Using NVIDIA as an industry benchmark, the GB300, which uses the Oberon rack
+            system, relies on copper for its scale-up connections. Vera Rubin, also on
+            Oberon, is likewise expected to use copper. Rubin Ultra, expected to use the
+            Kyber and Oberon rack systems respectively, is when traditional copper wiring
+            begins to be replaced. The architecture could involve PCB midplanes and copper,
+            or CPO and copper. The choice of routing architecture will depend in part on the
+            switches used within the system.
+          </p>
+          <p>
+            A small note here. There is still some uncertainty, but this appears to be the
+            most concise way to think about it. In 2028, NVIDIA is expected to introduce two
+            versions of Rubin Ultra: NVL144 and NVL576. The first is expected to use PCB
+            midplane technology with flyover copper wire in the switch tray; the second a
+            combination of copper and optics. NVL576 combines eight Oberon racks into a
+            single system, which may blur the traditional definition of scale-up somewhat.
+            I would still consider any architecture where the GPUs are connected within the
+            same system to be part of scale-up networking.
+          </p>
+          <table class="mini">
+            <thead><tr><th>Generation</th><th>Rack</th><th>Scale-up</th><th>Scale-out</th></tr></thead>
+            <tbody>
+              <tr><td>GB300</td><td>Oberon</td><td>Copper</td><td>1.6T pluggable, 8 × 200G — 216 modules</td></tr>
+              <tr><td>Vera Rubin</td><td>Oberon</td><td>Copper</td><td>1.6T, 432 modules — or CPO plus optical switching</td></tr>
+              <tr><td>Rubin Ultra NVL144</td><td>Oberon</td><td>PCB midplane + flyover copper</td><td>3.2T transceivers, 3.2T switches</td></tr>
+              <tr><td>Rubin Ultra NVL576</td><td>Kyber</td><td>Copper in-rack, CPO between racks</td><td>3.2T transceivers, 3.2T switches</td></tr>
+            </tbody>
+          </table>
+          <p>
+            We know there are limits to traditional copper. Copper cables become
+            increasingly thick and heavy as bandwidth requirements rise, while signal
+            integrity deteriorates beyond roughly 2 to 3 metres, and sometimes shorter. That
+            applies primarily to passive copper cables. There is an upgrade: Active
+            Electrical Cables (AECs) incorporate retimers and other active components to
+            extend usable transmission distances and maintain signal integrity. But AECs
+            remain subject to the fundamental physical limitations of copper, particularly
+            as bandwidth and link distances continue to increase.
+          </p>
+          <p>
+            This brings us to another potential solution: the PCB midplane. A midplane has
+            lower bandwidth than a direct copper cable for certain applications, but it
+            offers several important advantages for high-density AI systems. Rather than
+            relying on large bundles of individual copper cables, a midplane provides short,
+            direct board-level electrical connections and can integrate multiple routing
+            layers into a highly concentrated structure. That enables a High-Density
+            Interconnect (HDI) architecture, improving space efficiency while helping
+            maintain signal integrity over short distances.
+          </p>
+          <p>
+            The NVL144 combines a massive multilayer PCB midplane, or orthogonal backplane,
+            with copper flyover cables. The midplane serves as the central structural and
+            electrical routing layer, enabling a high-density, 90-degree rack layout while
+            eliminating the need for thousands of individual internal cables. It handles the
+            dense, short-reach board-level connections, while flyover cables provide
+            flexibility for connections that need greater reach or a different path.
+          </p>
+          <p>
+            Some major players in PCB manufacturing for AI and HPC include Victory Giant
+            Technology, WUS Printed Circuit, Tripod Technology, and Gold Circuit
+            Electronics. TTM Technologies, while currently smaller in this particular
+            market, is the major U.S. PCB player and has high potential. Victory Giant is
+            one of the leading players in AI and high-performance computing PCBs and is
+            pursuing aggressive capacity expansion. For one of the most critical materials
+            in the PCB stack, copper-clad laminate (CCL), companies such as Elite Material
+            (EMC) and Doosan are competing in the high-end, low-loss segment with M9-class
+            materials, which are widely expected in Rubin Ultra. Elite Material appears
+            particularly well positioned; based on current industry developments and its
+            certification activity with NVIDIA, it could emerge as a major, or potentially
+            dominant, player in high-end AI CCL.
+          </p>
+          <p>
+            The second version is NVL576, which connects eight Oberon racks, each containing
+            72 Rubin Ultra GPUs, using CPO between the racks in a two-tier, all-to-all
+            network, while the scale-up connections within each rack remain copper-based.
+            The longer-term solution will likely shift toward heavier use of optical
+            interconnects, particularly in the Kyber rack system and even more so in
+            Feynman.
+          </p>
+          <p>
+            Optics have a fundamental advantage over electrical copper links: optical
+            signals can travel significantly farther without the same degree of
+            degradation, while optical links provide much higher bandwidth density and are
+            less susceptible to electromagnetic interference. However, optics are not
+            automatically the answer today. The technology still has to clear manufacturing
+            yield, cost, power consumption, packaging, thermal management, and production
+            capacity. More on all of that below.
+          </p>
+          <p>
+            It's worth clarifying that this gradual shift from copper toward optical
+            interconnects applies only to AI servers and high-performance computing
+            infrastructure. Traditional servers are still largely dependent on copper, for
+            two reasons. First, optical interconnects are significantly more expensive than
+            conventional copper, and for traditional workloads the additional cost is often
+            difficult to justify. Second, traditional servers generally do not have the same
+            bandwidth, latency, and scale-up requirements. And within AI servers, copper is
+            unlikely to be completely replaced — usage should decline as optics spread, but
+            both PCB midplanes and CPO-based scale-up architectures retain some copper
+            content.
+          </p>
+
+          <h3>Scale-up: Google</h3>
+          <p>
+            Any discussion of optical scale-up has to include Google's TPU. Google has used
+            optics in its scale-up network since TPU v4, where optical circuit switches
+            (OCS) connect groups of 64 chips into pods containing thousands of chips. The
+            same approach continues into future generations.
+          </p>
+          <p>
+            To understand why Google adopted optics so early, it helps to compare the two
+            architectures. NVIDIA groups GPUs into a single domain connected through
+            NVSwitch, which acts as a central switching layer. If GPU 15 wants to
+            communicate with GPU 38, it sends the data to an NVSwitch, which forwards it to
+            the destination — exactly one switch hop. Google, by contrast, does not use a
+            central switch inside the pod. Each TPU connects directly to its neighbours
+            through Inter-Chip Interconnect (ICI) ports, arranged in a 3D torus. Each chip
+            has six neighbours: left, right, front, back, up, and down. To reach a TPU that
+            is not a direct neighbour, data hops from chip to chip through the torus.
+            Routing is therefore distributed across the network, which requires significant
+            software engineering to coordinate.
+          </p>
+          <p>
+            This topology gave Google a stronger reason to adopt optics early, for three
+            reasons. First, physical distance: a torus has wraparound links that connect the
+            edges of the grid back to each other, and in a large pod some of those links
+            span racks, pushing beyond the practical reach of copper. Second, flexibility:
+            optical circuit switches let Google reconfigure the topology in software,
+            partition a pod into slices for different workloads, and route around failed
+            chips. Third, latency: every additional hop adds latency, so shorter and more
+            direct optical paths become increasingly valuable as pods scale.
+          </p>
+
+          <h3>Scale-out: NVIDIA</h3>
+          <p>
+            Using the Oberon system and NVL72 GB300 as a reference, the system can involve
+            1.6T optical transceiver modules, 8 × 200G lanes, 216 optical modules in total.
+            In the Vera Rubin Oberon architecture there are two configurations. One still
+            uses 1.6T optical transceivers, with a 1.6T CPO ToR switch and 8 × 200G lanes,
+            but with a higher total number of connections — roughly double the modules of
+            the GB300 generation, 432 for the system. The other adopts a CPO solution,
+            combining 1.6T optical transceivers with optical switching. Looking ahead to
+            Rubin Ultra and the Kyber rack system, both configurations are expected to move
+            to 3.2T optical transceivers paired with 3.2T optical switches.
+          </p>
+          <p>
+            Evidently, unlike scale-up networking, which still relies heavily on copper,
+            pluggable optical transceivers are the mainstream solution for scale-out today,
+            given the longer distances and higher bandwidth involved. But as bandwidth
+            continues to increase, the industry appears to be gradually moving toward CPO. I
+            use CPO here as a general reference for that transition. Depending on the
+            specific architecture, the eventual solution may be closer to NPO than to true
+            CPO. Regardless of whether the industry ultimately adopts CPO, NPO, or a
+            combination of both, the broader trend is toward moving optical components
+            closer to the switching or compute silicon and away from traditional pluggable
+            transceivers.
+          </p>
+
+          <h3>From pluggables to co-packaged optics</h3>
+          <p>
+            This is a useful way to classify the roadmap. Today the industry is still
+            largely centred on <strong>pluggable optics</strong>, where the transceiver sits
+            at the front panel and connects to the ASIC through relatively long electrical
+            traces. The next step moves the optics closer to the ASIC: <strong>On-Board
+            Optics (OBO)</strong>, where the optical engine is placed directly on the PCB,
+            then <strong>Near-Package Optics (NPO)</strong>, where the engine is positioned
+            much closer to the ASIC on a high-performance substrate. The next major step is
+            <strong>Co-Packaged Optics (CPO)</strong>, where the optical engine and ASIC are
+            integrated within the same package, substantially shortening the electrical path
+            between them. The last is the <strong>Optoelectronic Integrated Circuit
+            (OEIC)</strong>, where the optical function is integrated into the chip itself —
+            far too advanced for current technology.
+          </p>
+          <p>
+            CPO is a sharp break from today's pluggables. A pluggable is a standalone,
+            hot-swappable module in the switch's front panel; CPO places the optics directly
+            on the same package as the switch chip or GPU. Pluggables are dominated by two
+            kinds. <strong>EML modules</strong> pair each lane with its own
+            electro-absorption modulated laser built on an indium phosphide (InP) chip, with
+            the laser inside the module. They deliver excellent signal quality at high speed
+            but are costly and supply-constrained. <strong>Silicon photonics (SiPh)
+            modules</strong> build the optics on silicon wafers and share one
+            continuous-wave (CW) laser across several lanes. Because many optical functions
+            sit on one silicon chip, they use fewer discrete parts, pack more bandwidth into
+            less space, and cost less at scale — and those advantages grow as speeds move
+            from 800G to 1.6T and beyond.
+          </p>
+          <p>
+            Silicon photonics is also the foundation of CPO. The role of EMLs is expected to
+            gradually diminish, while CW lasers gain share, potentially approaching 50% by
+            2028, and become the mainstream solution in the CPO era. Both rely on a DSP to
+            clean up the signal, which becomes a major power and cost burden at 800G and
+            1.6T. Still, pluggables are easy to replace when they fail and have better
+            yield, since each module is tested on its own. This is the part that gets
+            replaced and goes obsolete with the mass adoption of CPO.
+          </p>
+
+          <h3>Inside a CPO switch</h3>
+          <p>
+            This is roughly what a CPO switch architecture looks like at a high level. It
+            essentially replaces the DSP.
+          </p>
+          <!-- Interactive CPO package diagram. Behaviour lives in app.js under
+               "co-packaged optics diagram"; the <dl class="cpo-key"> below is
+               both the copy source for the panel and the no-JS fallback. -->
+          <figure class="cpo" id="cpo">
+            <div class="cpo-head">
+              <p class="cpo-eyebrow">Inside a CPO switch · click any block</p>
+              <div class="cpo-runs">
+                <button class="cpo-btn" type="button" data-flow="tx">Transmit path</button>
+                <button class="cpo-btn" type="button" data-flow="rx">Receive path</button>
+                <button class="cpo-btn cpo-btn--ghost" type="button" data-flow="reset">Reset</button>
+              </div>
+            </div>
+
+            <div class="cpo-stage">
+              <svg viewBox="0 0 720 420" role="img"
+                   aria-label="A co-packaged optics switch: a switch ASIC at the centre of a package substrate, flanked by optical engines made of an electronic IC and a photonic IC, each coupled through a fiber attach unit to a fiber ribbon leaving the package, with an external continuous-wave laser feeding light in from off-package.">
+
+                <!-- external light source -->
+                <g class="cpo-part" data-part="laser" tabindex="0" role="button" aria-label="External continuous-wave laser">
+                  <rect class="cpo-box cpo-laser" x="26" y="14" width="168" height="48" rx="8"/>
+                  <text class="cpo-lbl" x="110" y="36" text-anchor="middle">External CW laser</text>
+                  <text class="cpo-sub" x="110" y="51" text-anchor="middle">InP · deliberately off-package</text>
+                </g>
+
+                <!-- the package -->
+                <g class="cpo-part" data-part="board" tabindex="0" role="button" aria-label="Package substrate and interposer">
+                  <rect class="cpo-board" x="140" y="96" width="440" height="296" rx="16"/>
+                  <g class="cpo-via">
+                    <circle cx="176" cy="368" r="2"/><circle cx="206" cy="368" r="2"/>
+                    <circle cx="236" cy="368" r="2"/><circle cx="266" cy="368" r="2"/>
+                    <circle cx="296" cy="368" r="2"/><circle cx="326" cy="368" r="2"/>
+                    <circle cx="356" cy="368" r="2"/><circle cx="386" cy="368" r="2"/>
+                    <circle cx="416" cy="368" r="2"/><circle cx="446" cy="368" r="2"/>
+                    <circle cx="476" cy="368" r="2"/><circle cx="506" cy="368" r="2"/>
+                    <circle cx="536" cy="368" r="2"/>
+                  </g>
+                  <text class="cpo-sub" x="360" y="385" text-anchor="middle">Package substrate / interposer</text>
+                </g>
+
+                <!-- laser feed, into each photonic IC — painted after the substrate so it
+                     reads as fiber running over the package -->
+                <g class="cpo-cw" fill="none" data-cw>
+                  <path d="M160,62 C206,96 196,150 199,200"/>
+                  <path d="M194,30 C330,8 486,28 512,80 C520,108 521,160 521,200"/>
+                </g>
+
+                <!-- the engines that aren't drawn out -->
+                <rect class="cpo-ghost" x="290" y="120" width="140" height="52" rx="8"/>
+                <text class="cpo-sub cpo-faint" x="360" y="150" text-anchor="middle">more optical engines</text>
+                <rect class="cpo-ghost" x="290" y="306" width="140" height="52" rx="8"/>
+                <text class="cpo-sub cpo-faint" x="360" y="336" text-anchor="middle">more optical engines</text>
+
+                <!-- switch ASIC -->
+                <g class="cpo-part" data-part="asic" tabindex="0" role="button" aria-label="Switch ASIC">
+                  <rect class="cpo-box cpo-asic" x="288" y="200" width="144" height="92" rx="10"/>
+                  <text class="cpo-lbl" x="360" y="242" text-anchor="middle">Switch ASIC</text>
+                  <text class="cpo-sub" x="360" y="259" text-anchor="middle">no DSP in the path</text>
+                </g>
+
+                <!-- short electrical hops, ASIC to each EIC -->
+                <g class="cpo-el" fill="none">
+                  <path d="M274,222 H288"/><path d="M274,246 H288"/><path d="M274,270 H288"/>
+                  <path d="M432,222 H446"/><path d="M432,246 H446"/><path d="M432,270 H446"/>
+                </g>
+
+                <!-- receive-side engine -->
+                <g class="cpo-part" data-part="engine" tabindex="0" role="button" aria-label="Optical engine, receive side">
+                  <rect class="cpo-engine" x="168" y="194" width="112" height="104" rx="10"/>
+                  <text class="cpo-sub cpo-faint" x="224" y="208" text-anchor="middle">optical engine</text>
+                </g>
+                <g class="cpo-part" data-part="pic" tabindex="0" role="button" aria-label="Photonic integrated circuit">
+                  <rect class="cpo-box cpo-pic" x="174" y="214" width="50" height="76" rx="6"/>
+                  <text class="cpo-lbl cpo-lbl--sm" x="199" y="243" text-anchor="middle">PIC</text>
+                  <text class="cpo-sub" x="199" y="259" text-anchor="middle">mod · PD</text>
+                  <text class="cpo-sub" x="199" y="272" text-anchor="middle">MUX</text>
+                </g>
+                <g class="cpo-part" data-part="eic" tabindex="0" role="button" aria-label="Electronic integrated circuit">
+                  <rect class="cpo-box cpo-eic" x="228" y="214" width="46" height="76" rx="6"/>
+                  <text class="cpo-lbl cpo-lbl--sm" x="251" y="243" text-anchor="middle">EIC</text>
+                  <text class="cpo-sub" x="251" y="259" text-anchor="middle">driver</text>
+                  <text class="cpo-sub" x="251" y="272" text-anchor="middle">TIA</text>
+                </g>
+                <g class="cpo-part" data-part="fau" tabindex="0" role="button" aria-label="Fiber attach unit">
+                  <rect class="cpo-box cpo-fau" x="140" y="232" width="28" height="40" rx="5"/>
+                  <text class="cpo-sub" x="154" y="256" text-anchor="middle">FAU</text>
+                </g>
+
+                <!-- transmit-side engine -->
+                <g class="cpo-part" data-part="engine" tabindex="0" role="button" aria-label="Optical engine, transmit side">
+                  <rect class="cpo-engine" x="440" y="194" width="112" height="104" rx="10"/>
+                  <text class="cpo-sub cpo-faint" x="496" y="208" text-anchor="middle">optical engine</text>
+                </g>
+                <g class="cpo-part" data-part="eic" tabindex="0" role="button" aria-label="Electronic integrated circuit">
+                  <rect class="cpo-box cpo-eic" x="446" y="214" width="46" height="76" rx="6"/>
+                  <text class="cpo-lbl cpo-lbl--sm" x="469" y="243" text-anchor="middle">EIC</text>
+                  <text class="cpo-sub" x="469" y="259" text-anchor="middle">driver</text>
+                  <text class="cpo-sub" x="469" y="272" text-anchor="middle">TIA</text>
+                </g>
+                <g class="cpo-part" data-part="pic" tabindex="0" role="button" aria-label="Photonic integrated circuit">
+                  <rect class="cpo-box cpo-pic" x="496" y="214" width="50" height="76" rx="6"/>
+                  <text class="cpo-lbl cpo-lbl--sm" x="521" y="243" text-anchor="middle">PIC</text>
+                  <text class="cpo-sub" x="521" y="259" text-anchor="middle">mod · PD</text>
+                  <text class="cpo-sub" x="521" y="272" text-anchor="middle">MUX</text>
+                </g>
+                <g class="cpo-part" data-part="fau" tabindex="0" role="button" aria-label="Fiber attach unit">
+                  <rect class="cpo-box cpo-fau" x="552" y="232" width="28" height="40" rx="5"/>
+                  <text class="cpo-sub" x="566" y="256" text-anchor="middle">FAU</text>
+                </g>
+
+                <!-- fiber out, both sides -->
+                <g class="cpo-part" data-part="fiber" tabindex="0" role="button" aria-label="Fiber ribbon to the network">
+                  <g class="cpo-hit" fill="none">
+                    <path d="M140,238 C96,234 60,202 10,188"/>
+                    <path d="M140,252 C96,252 60,252 10,252"/>
+                    <path d="M140,266 C96,270 60,300 10,314"/>
+                    <path d="M580,238 C624,234 660,202 710,188"/>
+                    <path d="M580,252 C624,252 660,252 710,252"/>
+                    <path d="M580,266 C624,270 660,300 710,314"/>
+                  </g>
+                  <g class="cpo-fiber" fill="none">
+                    <path d="M140,238 C96,234 60,202 10,188"/>
+                    <path d="M140,252 C96,252 60,252 10,252"/>
+                    <path d="M140,266 C96,270 60,300 10,314"/>
+                    <path d="M580,238 C624,234 660,202 710,188"/>
+                    <path d="M580,252 C624,252 660,252 710,252"/>
+                    <path d="M580,266 C624,270 660,300 710,314"/>
+                  </g>
+                  <text class="cpo-sub cpo-faint" x="62" y="344" text-anchor="middle">from the network</text>
+                  <text class="cpo-sub cpo-faint" x="658" y="344" text-anchor="middle">to the network</text>
+                </g>
+
+                <!-- animation rails, never painted -->
+                <path id="cpo-tx" class="cpo-rail" d="M360,246 L432,246 L446,246 L492,246 L546,246 L580,246 L710,250"/>
+                <path id="cpo-rx" class="cpo-rail" d="M10,250 L140,246 L174,246 L224,246 L274,246 L288,246 L360,246"/>
+                <circle class="cpo-dot" r="6" cx="-20" cy="-20"/>
+              </svg>
+            </div>
+
+            <div class="cpo-panel" role="status" aria-live="polite">
+              <p class="cpo-panel-title">Co-packaged optics, at a high level</p>
+              <p class="cpo-panel-text">The optics move onto the switch package. Click a block for what it does, or run the transmit and receive paths to follow a signal through it.</p>
+            </div>
+
+            <ul class="cpo-legend">
+              <li><i class="cpo-sw cpo-sw--el"></i>Electrical</li>
+              <li><i class="cpo-sw cpo-sw--opt"></i>Optical data</li>
+              <li><i class="cpo-sw cpo-sw--cw"></i>CW light from the laser</li>
+            </ul>
+
+            <dl class="cpo-key">
+              <dt data-part="board">Substrate / interposer</dt>
+              <dd>The floor of the package. It carries the physical and electrical connections between the switch ASIC, the optical engines and everything else sitting on it.</dd>
+
+              <dt data-part="asic">Switch ASIC</dt>
+              <dd>The core of the system, directing traffic between the optical links. Because the optics are millimetres away instead of out at the front panel, the long electrical trace — and with it the DSP that a pluggable needs to clean up the signal — is designed out. That DSP is a major power and cost burden at 800G and 1.6T.</dd>
+
+              <dt data-part="engine">Optical engine</dt>
+              <dd>One PIC plus one EIC, several of them arranged around the ASIC. Every engine runs in both directions; receive is drawn on the left and transmit on the right here only to keep the two paths readable.</dd>
+
+              <dt data-part="pic">PIC — photonic integrated circuit</dt>
+              <dd>The optical half: modulators, photodetectors, and the wavelength multiplexers and demultiplexers. Built on silicon photonics, which is the foundation CPO is built on — many optical functions on one silicon chip, fewer discrete parts, more bandwidth in less space.</dd>
+
+              <dt data-part="eic">EIC — electronic integrated circuit</dt>
+              <dd>The electronic half: the drivers that swing the modulators on the transmit side, and the transimpedance amplifiers that amplify what the photodetectors hand back on the receive side.</dd>
+
+              <dt data-part="fau">FAU — fiber attach unit</dt>
+              <dd>The physical coupling between the engine and the outside world. Alignment and bonding here are at very small dimensions, and the packaging difficulty extends into the FAU itself — one of the reasons CPO yields are hard.</dd>
+
+              <dt data-part="laser">External CW laser</dt>
+              <dd>The light source, kept off the package on purpose. Lasers have a much shorter service life than the silicon around them and run hot; integrating one would mean replacing the whole assembly when it failed. High-power InP continuous-wave lasers lead for both scale-up and scale-out. VCSELs suit shorter scale-up reach, and microLEDs are an early option for very short links.</dd>
+
+              <dt data-part="fiber">Fiber ribbon</dt>
+              <dd>Out to the rest of the network. Optics carry far more bandwidth per millimetre of edge than copper, travel much further before the signal degrades, and are indifferent to electromagnetic interference.</dd>
+            </dl>
+
+            <figcaption>A CPO switch at a high level: the optical engines ring the ASIC, the laser stays outside, and the electrical path shrinks from a front-panel trace to a few millimetres of package wiring.</figcaption>
+          </figure>
+          <p>
+            At the bottom is the substrate or interposer, which provides the physical and
+            electrical connections between the different components. At the centre is the
+            switch ASIC, the core of the system, directing data traffic between the optical
+            links. Surrounding it are the optical engines. Each engine consists primarily of
+            two parts: a Photonic Integrated Circuit (PIC) and an Electronic Integrated
+            Circuit (EIC). The PIC contains the key optical components — modulators,
+            photodetectors, wavelength multiplexers (MUX) and demultiplexers (DEMUX). The
+            EIC contains the key electronic components — drivers and transimpedance
+            amplifiers (TIAs). The engines connect to the external optical network through
+            fiber attach units (FAUs).
+          </p>
+          <p>
+            The laser or light source is a critical component of CPO, with different
+            technologies trading off reach, power efficiency, bandwidth density, cost, and
+            maturity. It needs emphasising that this is still an <em>external</em> light
+            source. CW lasers, particularly high-power InP lasers used as external light
+            sources for silicon-photonics engines, are the leading approach and can support
+            both scale-up and scale-out. VCSELs are another option, particularly for
+            shorter-reach scale-up links; they benefit from a mature ecosystem, high-speed
+            modulation, strong energy efficiency, and potentially lower cost, although their
+            reach is generally shorter. MicroLEDs are an emerging option for very
+            short-reach interconnects, with potential advantages in energy efficiency,
+            latency, and cost, but they remain less mature and cover less distance.
+          </p>
+          <p>
+            The signal flow can then be understood step by step. On the transmit side, the
+            switch ASIC sends an electrical signal to the EIC, where the driver drives the
+            modulator on the PIC. In the external-laser SiPh implementation, the laser
+            provides the continuous-wave light, and the modulator converts the electrical
+            data into an optical signal. The optical signal then passes through the FAU and
+            into the fiber. On the receive side, the optical signal enters through the FAU
+            and reaches the PIC, where the photodetector converts it back into an electrical
+            signal. That signal goes to the TIA, which amplifies and conditions it before
+            sending it back toward the switch ASIC.
+          </p>
+
+          <h3>Who actually builds it</h3>
+          <p>
+            At the system level, Broadcom and NVIDIA lead CPO development, with Marvell and
+            MediaTek also building solutions. TSMC is the default foundry for the photonic
+            chips, though reports suggest UMC and Intel may win a piece of the business.
+            Beneath these chip designers, vertical integration runs through the supply chain,
+            and several players stand out.
+          </p>
+          <p>
+            Coherent and Lumentum are the two most important laser suppliers, but they are
+            generally seen as strong in different ways. Coherent leads on output: it has the
+            broadest product range, from lasers and EMLs to silicon photonics and finished
+            transceivers, and it was the first to move indium phosphide production onto
+            larger 6-inch wafers. Lumentum is widely viewed as the technology leader at the
+            cutting edge — early to ship 200G-per-lane EMLs for 1.6T modules, and a leading
+            supplier of the ultra-high-power CW lasers that CPO requires. NVIDIA's $2 billion
+            investment in each suggests how important they are.
+          </p>
+          <p>
+            Marvell supplies the DSPs inside most high-speed transceivers, builds silicon
+            photonics engines, and strengthened its optical interconnect and CPO position by
+            acquiring Celestial AI. TSMC manufactures the photonic chips and provides the
+            COUPE advanced packaging that ties optics to the switch — an irreplaceable role
+            in manufacturing. InnoLight, the world's largest transceiver maker, is moving
+            upstream into silicon photonics to get a slice of the CPO era. In Japan,
+            Sumitomo Electric makes indium phosphide lasers and EMLs as well as optical fiber
+            and connectivity products, giving it a presence across both the light source and
+            the cabling CPO systems depend on.
+          </p>
+          <p>
+            Evidently, many of these companies play multiple roles across the value chain,
+            producing everything from lasers and photonic chips to finished optical modules,
+            and in some cases competing directly with their own customers. That highlights
+            the uncertainty surrounding how the technology will evolve and how market share
+            may ultimately be distributed. Beyond the major players there is also a long tail
+            of smaller specialists — component manufacturers, packaging and assembly
+            providers — filling critical gaps with specialised components, manufacturing
+            capacity, and technical expertise.
+          </p>
+
+          <h3>Why CPO isn't here yet</h3>
+          <p>
+            Talk about how much more distance it can cover, how much better the signal is,
+            how much more advanced the technology is. There is so much to praise — so why is
+            CPO not yet in mass production?
+          </p>
+          <p>
+            <strong>Cost.</strong> The exact price is uncertain and difficult to determine,
+            and much of it is confidential. But it is significantly more expensive than
+            optical transceivers, and far more so than AECs and copper. The replacement cost
+            is much higher too. When a pluggable transceiver breaks down, you replace the
+            transceiver. With CPO, the optical engine is integrated much more closely with
+            the switch package, so a failure requires replacing a much larger portion of the
+            system rather than one module. This is also one of the reasons the laser source
+            is kept external. Imagine the laser integrated into the package and then failing:
+            given that lasers have a significantly shorter service life than other
+            components, how much more expensive and complicated would it be to replace the
+            whole assembly? The other concern is overheating taking everything down with it,
+            which becomes a bigger issue with the laser inside the package.
+          </p>
+          <p>
+            <strong>Capacity.</strong> Foundry capacity and laser supply are the two primary
+            constraints. Take COUPE from TSMC, an enabling technology for CPO. According to
+            TrendForce, TSMC's PIC capacity is expected to increase from around 500 wafers
+            per month to 10,000 by the second quarter of 2026, rise further to 15,000 by the
+            fourth quarter, and reach at least 25,000 per month by 2028.
+          </p>
+          <div class="chart" data-kind="bar"
+               data-values="500,10000,15000,25000"
+               data-labels="Now,2Q26,4Q26,2028"
+               data-unit=" wpm"
+               data-caption="TSMC PIC wafer capacity per month, per TrendForce"></div>
+          <p>
+            TSMC's strength is not only foundry capacity but also advanced packaging, which
+            is particularly important for integrating photonics with compute and makes TSMC
+            the number one player here as well. But advanced foundry and packaging capacity
+            is already constrained, so this will likely still be insufficient to meet demand.
+            Intel's Optical Compute Interconnect (OCI) is another interesting technology that
+            could let Intel compete in this market, but it is still in testing and
+            development, so its ability to compete at scale remains to be demonstrated.
+          </p>
+          <p>
+            <strong>Materials.</strong> The laser source is significant because of the
+            underlying semiconductor materials and the complexity of manufacturing them. In
+            addition to silicon, these materials are used because of their ability to
+            efficiently emit and manipulate light. Gallium arsenide (GaAs) and indium
+            phosphide (InP) are two of the key ones, with InP particularly scarce and
+            increasingly important for advanced optical applications. Growing InP crystals is
+            difficult because phosphorus is highly volatile and can evaporate easily during
+            crystal growth, making the material harder to manufacture at scale. Sumitomo
+            Electric Industries, AXT Inc. (United States, with manufacturing in China), and
+            JX Advanced Metals are the three major players in the InP substrate supply chain.
+            On top of that, China put InP under export licensing in February 2025, requiring
+            a permit for every customer order, further constraining an already inadequate
+            supply. The same tightness applies to EML and CW lasers: demand is driven by the
+            rapid expansion of AI servers, migration to higher speeds, and the rising number
+            of optical connections per data centre. Coherent and Lumentum are actively
+            expanding capacity, but supply may still remain tight.
+          </p>
+          <p>
+            <strong>Yield.</strong> Exact figures are confidential, but CPO faces
+            significantly greater yield challenges than conventional pluggable transceivers
+            and copper. That is largely a result of the complexity of advanced packaging.
+            Silicon and InP have different coefficients of thermal expansion, meaning they
+            expand and contract at different rates as temperatures change, so one side
+            stretches more than the other; repeated thousands of times, it leads to
+            malfunction. CPO also requires the integration of multiple components and
+            processes, including high-precision alignment and bonding at very small
+            dimensions. These processes need highly specialised equipment and expertise, and
+            even small alignment or bonding errors can affect optical performance. The
+            packaging issue extends to FAUs as well, making the whole thing very hard to
+            produce. Finally, because CPO is still relatively new and less mature, testing
+            and screening are less established than for conventional pluggables, which makes
+            it harder to identify and correct defects early — another challenge for
+            achieving consistently high yields.
+          </p>
+
+          <h3>Where that leaves it</h3>
+          <p>
+            Put the pieces together and the direction is not really in dispute.
+            Networking is the binding constraint on AI infrastructure, copper runs out
+            of road somewhere around two to three metres, and every roadmap on the table
+            — NVIDIA's, Google's, Broadcom's — walks the optics closer to the silicon.
+            CPO is where that ends up. What is in dispute is when, in what form (CPO,
+            NPO, or some mix of the two), and who keeps the margin once it arrives.
+          </p>
+          <p>
+            That gap between direction and timing is the whole problem with the stocks.
+            The technology is years from settled while the multiples already discount
+            2027 to 2029 demand. Cost, foundry and packaging capacity, InP supply, and
+            yield are each independently capable of pushing adoption out by a year, and
+            most of them are physical constraints that money cannot solve quickly — you
+            cannot tell a phosphorus crystal to grow faster, and TSMC's advanced
+            packaging line is oversubscribed before CPO gets near it. Meanwhile the
+            backlogs are real but unconverted, and the companies holding them compete
+            with their own customers across half the layers of the stack.
+          </p>
+          <p>
+            So what I would watch is not demand. Demand is not the question. It is
+            conversion: CPO shipping in volume rather than sampling, COUPE capacity
+            landing on something like the schedule it has been given, InP substrate
+            supply loosening or tightening further, and the first credible yield numbers
+            out of anyone's packaging line. Those are what turn a backlog into revenue.
+            Until they move, these multiples are a bet on a timeline more than on a
+            technology — and timelines in photonics have a long history of slipping to
+            the right.
+          </p>
+
+          <p class="dateline">Written 19 September 2026.</p>
+          <p class="disclaimer">
+            Not investment advice, and not a recommendation to buy or sell anything. I
+            am not a licensed advisor. This is a working note put together from public
+            reporting, company disclosures and third-party estimates, and parts of it
+            rest on roadmaps that are unannounced, subject to change, or simply rumoured
+            — architecture, generation names and timing all move. Yield, cost and
+            capacity figures in this industry are confidential, so numbers here are
+            estimates and dates are expectations rather than facts. I may hold positions
+            in companies mentioned and may change them without updating this page. Do
+            your own work.
+          </p>
+        </div>
+      </details>
+    </li>
+
+  </ul>
+
+  <p class="empty" id="noresults" hidden>Nothing filed under that yet.</p>
+
+  <section class="coming" id="coming">
+    <h2>What goes here</h2>
+    <ul class="coming-list">
+      <li>
+        <span class="cat c-current"><i class="dot d-current"></i>Current events</span>
+        <p>What happened, and why the obvious read is usually wrong.</p>
+      </li>
+      <li>
+        <span class="cat c-markets"><i class="dot d-markets"></i>Stocks</span>
+        <p>What the price implies, and which assumption I'd take the other side of.</p>
+      </li>
+      <li>
+        <span class="cat c-code"><i class="dot d-code"></i>Code</span>
+        <p>Things I built, and what broke along the way.</p>
+      </li>
+    </ul>
+    <p class="coming-note">First entries going up shortly.</p>
+  </section>
+
+
+  <footer>
+    <p>ianthinks.com · Nothing here is investment advice.</p>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

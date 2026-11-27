@@ -1,0 +1,87 @@
+<!-- Reference only — this file is not linked from the site.
+
+     Three worked entry patterns: a current-events read, a stock write-up with a
+     numbers table, and a code project with a shell block. To publish one, paste
+     the <li> into <ul id="feed"> in index.html and rewrite the content.
+     data-cat must be one of: current | markets | code
+
+     Entry bodies get extras for free: code blocks gain a language label, a copy
+     button and highlighting; tables with 2+ rows become sortable; a .chart div
+     renders an interactive chart. See README.md for the attributes.
+-->
+
+    <li class="entry-item reveal" data-cat="current">
+      <details class="entry-card">
+        <summary class="entry">
+          <span class="cat c-current"><i class="dot d-current"></i>Current events</span>
+          <span class="entry-title">Placeholder: the story everyone read backwards</span>
+          <span class="entry-meta">Nov 2026</span>
+          <span class="entry-note">What actually happened, versus the version that travelled.</span>
+          <span class="entry-arrow" aria-hidden="true">→</span>
+        </summary>
+        <div class="entry-body">
+          <p>
+            Write it here. One idea per entry: the thing that happened, the read
+            everyone defaulted to, and the detail that makes that read wrong.
+          </p>
+          <p>
+            Links go inline — <a href="#">primary source first</a>, commentary second.
+          </p>
+        </div>
+      </details>
+    </li>
+
+    <li class="entry-item reveal" data-cat="markets">
+      <details class="entry-card">
+        <summary class="entry">
+          <span class="cat c-markets"><i class="dot d-markets"></i>Stocks</span>
+          <span class="entry-title">Placeholder: a position and the case for it</span>
+          <span class="entry-meta">Nov 2026 · $TICKER</span>
+          <span class="entry-note">What the price implies, and which assumption I'd take the other side of.</span>
+          <span class="entry-arrow" aria-hidden="true">→</span>
+        </summary>
+        <div class="entry-body">
+          <p>
+            The thesis in two sentences, then the numbers. What has to be true for
+            this to work, and what would tell you it isn't.
+          </p>
+          <!-- Inline chart. kind = line | bar. Labels, unit and caption are
+               optional; needs at least two values. Hover or arrow-key it. -->
+          <div class="chart" data-kind="line"
+               data-values="18,21,19,26,24,31,29,34"
+               data-labels="Q1 24,Q2 24,Q3 24,Q4 24,Q1 25,Q2 25,Q3 25,Q4 25"
+               data-unit="%" data-caption="Revenue growth, year on year"></div>
+
+          <!-- Any table with 2+ body rows becomes sortable on its own. -->
+          <table class="mini">
+            <thead><tr><th>Metric</th><th>Now</th><th>My number</th></tr></thead>
+            <tbody>
+              <tr><td>Revenue growth</td><td>—</td><td>—</td></tr>
+              <tr><td>Margin</td><td>—</td><td>—</td></tr>
+              <tr><td>Multiple</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <p class="disclaimer">Not advice. I may hold what I write about.</p>
+        </div>
+      </details>
+    </li>
+
+    <li class="entry-item reveal" data-cat="code">
+      <details class="entry-card">
+        <summary class="entry">
+          <span class="cat c-code"><i class="dot d-code"></i>Code</span>
+          <span class="entry-title">Placeholder: a thing I built</span>
+          <span class="entry-meta">2026</span>
+          <span class="entry-note">What it does, why it exists, what broke along the way.</span>
+          <span class="entry-arrow" aria-hidden="true">→</span>
+        </summary>
+        <div class="entry-body">
+          <p>
+            What problem it solves and the one design decision worth explaining.
+          </p>
+          <pre data-lang="shell"><code>git clone https://github.com/YOURNAME/project
+cd project &amp;&amp; make run</code></pre>
+          <p><a class="repo-link" href="#">Repo ↗</a></p>
+        </div>
+      </details>
+    </li>
