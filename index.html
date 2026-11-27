@@ -378,11 +378,12 @@
           </p>
 
           <p>
-            <b>Public code, private search.</b> The repository is public; the search it ran
-            is not in it. Identity, resume, application answers and anything it ever learned
-            about another person live in gitignored files with <code>.example</code> templates
-            beside them, and the test fixtures use invented people. Nothing about the sender is hard-coded, so
-            anyone can clone it and run their own search without inheriting mine.
+            <b>Nothing personal in the code.</b> The search it ran is kept out of the
+            project entirely. Identity, resume, application answers and anything it ever
+            learned about another person live in gitignored files with <code>.example</code>
+            templates beside them, so nothing about me — or about anyone I contacted — is
+            hard-coded into it. Someone else could run their own search without inheriting
+            mine.
           </p>
 
           <h3>What it deliberately doesn't do</h3>
@@ -409,13 +410,10 @@
             layer each file belongs to, and a test fails if any import points upward.
           </p>
 
-          <pre data-lang="shell"><code>git clone https://github.com/ianisnotgoodatjava/cowork-job-app.git
-cd cowork-job-app
-python3 -m venv venv &amp;&amp; source venv/bin/activate
-pip install -r requirements.txt &amp;&amp; pip install -e .
-python cli.py setup</code></pre>
-
-          <p><a class="repo-link" href="https://github.com/ianisnotgoodatjava/cowork-job-app">Repo ↗</a></p>
+          <p class="disclaimer">
+            The repository is private for now — it ran on a real search, and that is not
+            mine alone to publish.
+          </p>
         </div>
       </details>
     </li>
