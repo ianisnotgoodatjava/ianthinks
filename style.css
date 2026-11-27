@@ -26,6 +26,7 @@
   --c-current:  #1f6584;
   --c-code:   #6244ad;
   --c-markets: #1d7554;
+  --c-misc: #9b4f67;
 
   /* elevation */
   --shadow-1: 0 1px 1px rgba(32, 26, 16, .04),
@@ -93,6 +94,7 @@
     --c-current:  #74bada;
     --c-code:   #ab92e8;
     --c-markets: #68cb9c;
+    --c-misc: #e0a0b5;
 
     --shadow-1: 0 1px 1px rgba(0, 0, 0, .5),
                 0 2px 8px -2px rgba(0, 0, 0, .6);
@@ -159,6 +161,7 @@
   --c-current:  #74bada;
   --c-code:   #ab92e8;
   --c-markets: #68cb9c;
+  --c-misc: #e0a0b5;
 
   --shadow-1: 0 1px 1px rgba(0, 0, 0, .5),
               0 2px 8px -2px rgba(0, 0, 0, .6);
@@ -566,6 +569,7 @@ h2 {
 .d-current  { background: var(--c-current); }
 .d-code   { background: var(--c-code); }
 .d-markets { background: var(--c-markets); }
+.d-misc   { background: var(--c-misc); }
 
 /* ---------------------------------------------------- feed */
 .entries {
@@ -595,6 +599,7 @@ h2 {
 .entry-item[data-cat="current"] .entry { --tint: var(--c-current); }
 .entry-item[data-cat="code"]   .entry { --tint: var(--c-code); }
 .entry-item[data-cat="markets"] .entry { --tint: var(--c-markets); }
+.entry-item[data-cat="misc"] .entry { --tint: var(--c-misc); }
 
 /* accent rail: a hint at rest, nearly full height on hover */
 .entry::before {
@@ -645,6 +650,7 @@ h2 {
 .c-current  { color: var(--c-current); }
 .c-code   { color: var(--c-code); }
 .c-markets { color: var(--c-markets); }
+.c-misc   { color: var(--c-misc); }
 
 .entry-title {
   display: block;
@@ -1054,6 +1060,7 @@ footer a:hover { color: var(--accent); }
 .palette-hit[data-cat="current"] { --tint: var(--c-current); }
 .palette-hit[data-cat="markets"] { --tint: var(--c-markets); }
 .palette-hit[data-cat="code"]    { --tint: var(--c-code); }
+.palette-hit[data-cat="misc"]    { --tint: var(--c-misc); }
 .palette-hit .dot { align-self: center; background: var(--tint); }
 .palette-hit.is-active {
   background: color-mix(in srgb, var(--tint) 12%, transparent);
@@ -1167,6 +1174,7 @@ th[aria-sort="descending"] .th-sort { color: var(--ink); }
 .entry-item[data-cat="current"] .chart { --tint: var(--c-current); }
 .entry-item[data-cat="markets"] .chart { --tint: var(--c-markets); }
 .entry-item[data-cat="code"]    .chart { --tint: var(--c-code); }
+.entry-item[data-cat="misc"]    .chart { --tint: var(--c-misc); }
 .chart:focus-visible { outline: 2px solid var(--tint); outline-offset: 4px; }
 
 .chart-svg {
@@ -1635,3 +1643,4 @@ th[aria-sort="descending"] .th-sort { color: var(--ink); }
 .entry-item[data-cat="current"] .entry-body { --tint: var(--c-current); }
 .entry-item[data-cat="markets"] .entry-body { --tint: var(--c-markets); }
 .entry-item[data-cat="code"]    .entry-body { --tint: var(--c-code); }
+.entry-item[data-cat="misc"]    .entry-body { --tint: var(--c-misc); }

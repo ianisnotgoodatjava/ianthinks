@@ -270,8 +270,9 @@
   <nav class="filters" aria-label="Filter by topic">
     <button class="chip is-active" data-filter="all" aria-pressed="true"><span>Everything</span><span class="count" aria-hidden="true"></span></button>
     <button class="chip" data-filter="current" aria-pressed="false"><i class="dot d-current"></i><span>Current events</span><span class="count" aria-hidden="true"></span></button>
-    <button class="chip" data-filter="markets" aria-pressed="false"><i class="dot d-markets"></i><span>Stocks</span><span class="count" aria-hidden="true"></span></button>
+    <button class="chip" data-filter="markets" aria-pressed="false"><i class="dot d-markets"></i><span>Capital markets</span><span class="count" aria-hidden="true"></span></button>
     <button class="chip" data-filter="code" aria-pressed="false"><i class="dot d-code"></i><span>Code</span><span class="count" aria-hidden="true"></span></button>
+    <button class="chip" data-filter="misc" aria-pressed="false"><i class="dot d-misc"></i><span>Miscellaneous</span><span class="count" aria-hidden="true"></span></button>
   </nav>
   <p class="sr-only" role="status" aria-live="polite" id="filter-status"></p>
 
@@ -422,12 +423,12 @@ python cli.py setup</code></pre>
     <!-- Entries go here. Three worked patterns — a current-events read, a
          stock write-up with a numbers table, a code project — are kept in
          _entry-examples.html. Paste one in and rewrite it.
-         data-cat must be one of: current | markets | code -->
+         data-cat must be one of: current | markets | code | misc -->
 
     <li class="entry-item reveal" data-cat="markets">
       <details class="entry-card">
         <summary class="entry">
-          <span class="cat c-markets"><i class="dot d-markets"></i>Stocks</span>
+          <span class="cat c-markets"><i class="dot d-markets"></i>Capital markets</span>
           <span class="entry-title">CPO analysis</span>
           <span class="entry-meta">Sep 2026 · Optical networking · 18 min</span>
           <span class="entry-note">
@@ -1099,7 +1100,7 @@ python cli.py setup</code></pre>
         <p>What happened, and why the obvious read is usually wrong.</p>
       </li>
       <li>
-        <span class="cat c-markets"><i class="dot d-markets"></i>Stocks</span>
+        <span class="cat c-markets"><i class="dot d-markets"></i>Capital markets</span>
         <p>What the price implies, and which assumption I'd take the other side of.</p>
       </li>
       <li>

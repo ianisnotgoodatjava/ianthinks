@@ -45,7 +45,8 @@ One chronological feed, filterable. Three topics:
 | topic | `data-cat` | classes |
 |---|---|---|
 | Current events | `current` | `c-current` / `d-current` |
-| Stocks         | `markets` | `c-markets` / `d-markets` |
+| Capital markets | `markets` | `c-markets` / `d-markets` |
+| Miscellaneous   | `misc`    | `c-misc` / `d-misc`       |
 | Code           | `code`    | `c-code` / `d-code` |
 
 ## to add an entry
